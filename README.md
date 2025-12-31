@@ -1,4 +1,4 @@
-# RDKit-Py
+# Odor data process Toolkit
 
 A Python package for molecular chemistry data processing and analysis using RDKit, with focus on odor/flavor compounds and their properties.
 
