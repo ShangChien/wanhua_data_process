@@ -1,0 +1,116 @@
+      
+Base:
+  loss_func: auto
+  seed: 42
+  confidence: False
+  task: 'regression' ##'classification', 'regression', 'multilabel_classification', 'multilabel_regression', 'multiclass'
+Datahub:
+  parsing: auto
+  smiles_col: SMILES
+  target_cols: TARGET #TARGET,TARGET_1,TARGET_2 多个目标值
+  target_col_prefix: TARGET #当设置target_cols,这行忽略
+  target_normalize: auto
+  anomaly_clean: False
+  split_method: random  ## default: random  choice:random/scaffold/group/stratified
+  group_col: GROUP #
+  split_n: 5
+  split_seed: 42
+Featurehub:
+  1D_smiles:
+    active: True
+    max_len: 200
+  2D_graph_1:
+    active: False    
+  3D_conformer:
+    active: True
+    size: 1
+    mode: heavy
+  FE_fringerprint:
+    active: True
+    neighbor: 5
+    dim: 2048
+  FE_handcrafts:
+    active: True
+    base_featureset: True
+Modelhub:
+  NNModel:
+    NN01:
+      active: True
+      model: "UniMolModel"
+      feature: "3D_conformer_all_h"
+      params:
+        pretrain: "mol_pre_all_h_220816.pt"   ### choices: mol_pre_no_h_220816.pt, mol_pre_all_h_220816.pt
+    NN02:
+      active: True
+      model: "UniMolModel"
+      feature: "3D_conformer_no_h"
+      params:
+        pretrain: "mol_pre_no_h_220816.pt"   ### choices: mol_pre_no_h_220816.pt, mol_pre_all_h_220816.pt
+    NN03:
+      active: True
+      model: "BERTModel"
+      feature: "1D_smiles"
+    NN04:
+      active: False
+      model: "HIGNNModel"
+      feature: "2D_graph_1" 
+  MLModel:
+    ML01:
+      active: True
+      model: "LRModel"
+      feature: "FE_fringerprint"
+      params:
+        C: 1.0 
+    ML02:
+      active: True
+      model: "GBDTModel"
+      feature: "FE_handcrafts"
+      params:
+        n_estimators: 1000
+        num_leaves: 31
+        learning_rate: 0.03
+    ML03:
+      active: True
+      model: "ETModel"
+      feature: "FE_handcrafts"
+      params:
+        n_estimators: 100
+        max_depth: 40
+    ML04:
+      active: True
+      model: "SVMModel"
+      feature: "FE_fringerprint"
+      params:
+        C: 10
+        epsilon: 0.1
+Ensembler:
+  method: "stacking"
+  filter_size: 1
+  model: "LRModel"
+  feature: "Meta_feature"
+  params:
+    C: 1.0
+Trainer:
+  hyperopt:
+    nn_trials: 3
+    nn_hpo_range:
+      max_epochs: [20, 50, 100]  
+      learning_rate: [2e-5, 1e-3]
+      batch_size: [4, 8, 16]
+    ml_trials: 3   
+  Common:
+    seed: 0
+    mode: "fast"
+    logger_level: 1
+    report: True
+  NNtrainer:
+    patience: 10
+    max_epochs: 100
+    learning_rate: 1e-4
+    warmup_ratio: 0.03
+    batch_size: 16
+    max_norm: 5.0
+    cuda: True
+    amp: True
+  MLtrainer:
+    cpu: -1

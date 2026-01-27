@@ -1,0 +1,161 @@
+// $colors: map.deep-merge(
+//   (
+//     'white': #ffffff,
+//     'black': #000000,
+//     'primary': (
+//       'base': #409eff,
+//     ),
+//     'success': (
+//       'base': #67c23a,
+//     ),
+//     'warning': (
+//       'base': #e6a23c,
+//     ),
+//     'danger': (
+//       'base': #f56c6c,
+//     ),
+//     'error': (
+//       'base': #f56c6c,
+//     ),
+//     'info': (
+//       'base': #909399,
+//     ),
+//   ),
+//   $colors
+// );
+$--colors: (
+  "primary": (
+    "base": #5444ff,
+  ),
+  "danger": (
+    "base": #ff4747,
+  ),
+  "success": (
+    "base": #0ab268,
+  ),
+  "warning": (
+    "base": #ff9900,
+  ),
+  "error": (
+    "base": #ff4747,
+  ),
+  "info": (
+    "base": #a7abd3,
+  ),
+);
+
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: $--colors,
+  $date-editor: (
+    // "daterange-width": 260px,
+  )
+);
+@use "element-plus/theme-chalk/src/index.scss" as *;
+
+@import "variables.scss";
+
+@import "@/assets/variables";
+:root {
+  --vxe-ui-font-primary-color: #5444ff !important;
+  --vxe-ui-table-column-hover-background-color: #f2f3ff !important;
+  --vxe-ui-table-column-current-background-color: #f2f3ff !important;
+  --vxe-ui-table-cell-padding-left: 24px !important;
+  --vxe-ui-table-cell-padding-right: 24px !important;
+}
+
+#nprogress .bar {
+  background: $primary-color;
+}
+.vue-slider-process {
+  background-color: $primary-color !important;
+}
+.vue-slider-dot-handle {
+  border-color: $primary-color !important ;
+}
+.el-button.el-button--primary.is-link {
+  font-weight: 350;
+}
+.el-divider--horizontal {
+  border-color: $gray3-color;
+}
+.el-button {
+  border-radius: $btn-border-radius;
+}
+.el-input__wrapper {
+  border-radius: $input-border-radius;
+}
+.el-select__wrapper {
+  border-radius: $input-border-radius;
+}
+.el-dialog {
+  border-radius: $card-border-radius;
+  padding: $dialog-padding;
+  .el-dialog__header {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: $dialog-padding;
+    letter-spacing: 0em;
+  }
+  .el-dialog__header.show-close {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    padding-bottom: $dialog-padding;
+    > .el-dialog__headerbtn {
+      position: static;
+      height: $dialog-padding;
+      width: $dialog-padding;
+    }
+  }
+
+  .el-dialog__footer {
+    padding-top: $dialog-padding;
+  }
+}
+
+.el-radio-button {
+  &:first-child .el-radio-button__inner {
+    border-radius: $radio-button-border-radius 0 0 $radio-button-border-radius;
+  }
+  &:last-child .el-radio-button__inner {
+    border-radius: 0 $radio-button-border-radius $radio-button-border-radius 0;
+  }
+}
+.el-descriptions__label:not(.is-bordered-label) {
+  margin-right: 4px;
+}
+.vxe-table .vxe-header--column {
+  background-color: #f8f9fd;
+  .vxe-cell--title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    color: $font-gray2-color;
+  }
+  .vxe-cell--label {
+    font-size: 14px;
+    font-weight: 350;
+    line-height: 22px;
+    letter-spacing: 0px;
+
+    color: $font-gray1-color;
+  }
+}
+
+.el-drawer__header {
+  margin-bottom: 0;
+}
+
+.el-form-item__label {
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 0em;
+  color: $font-gray2-color;
+}
+.el-pager {
+  .number {
+    border-radius: 50%;
+  }
+}

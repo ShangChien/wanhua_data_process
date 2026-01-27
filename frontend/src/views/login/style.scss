@@ -1,0 +1,73 @@
+@import "@/assets/variables.scss";
+.item-container {
+  width: 400px;
+  margin-top: 48px;
+
+  .check-container {
+    display: flex;
+    align-items: center;
+    &.remember-pwd {
+      margin-bottom: 16px;
+      justify-content: space-between;
+    }
+    .check-tip {
+      color: #0009;
+    }
+    .tip {
+      float: right;
+      font-size: 14px;
+      color: $primary-color;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .btn-container {
+    // margin-top: 48px;
+    .login-btn {
+      width: 100%;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
+}
+
+.verification-code {
+  display: flex;
+  align-items: center;
+  .code-button {
+    flex: 1;
+    margin-left: 11px;
+  }
+  .code-input {
+    width: 250px;
+  }
+}
+
+.switch-container {
+  // margin-top: 24px;
+
+  .tip {
+    color: #0052d9;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 14px;
+    font-size: 14px;
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 12px;
+      margin-left: 14px;
+    }
+  }
+}

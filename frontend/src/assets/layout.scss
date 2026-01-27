@@ -1,0 +1,99 @@
+@import "variables.scss";
+.general-wrapper {
+  // padding: 32px 40px;
+  padding: 24px;
+  position: relative;
+}
+.card-style {
+  box-sizing: border-box;
+  border-radius: 0 0 8px 8px;
+  background-color: #fffefe;
+  border-radius: $card-border-radius;
+  padding: 24px;
+}
+
+.text-h6 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0em;
+  color: $font-title-color;
+  margin-bottom: 20px;
+}
+.round-btn {
+  border-radius: $radio-button-border-radius;
+  border: 1px solid $font-gray2-color;
+}
+.iconpark-icon {
+  width: 16px;
+  height: 16px;
+}
+.button-iconpark-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.text-label {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  letter-spacing: 0em;
+  color: $font-gray3-color;
+  text-align: left;
+}
+.text-value {
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+  color: $font-gray1-color;
+}
+
+.text-step {
+  font-weight: 350;
+  letter-spacing: 0em;
+  color: $font-gray1-color;
+  font-family: Source Han Sans;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.text-tip {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz" auto;
+  color: $font-gray1-color;
+}
+
+.text-tip__upload {
+  font-size: 12px;
+  font-weight: normal;
+  text-wrap: nowrap;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: $font-gray4-color;
+}
+.el-button.is-link {
+  &:not(.el-button--primary) {
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+.pager {
+  background-color: #fff;
+  height: 62px;
+  padding: 32px 24px;
+  border-bottom-left-radius: $card-border-radius;
+  border-bottom-right-radius: $card-border-radius;
+}

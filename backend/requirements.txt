@@ -1,0 +1,14 @@
+fastapi[all]
+bcrypt==4.1.3
+passlib==1.7.4
+pyjwt==2.8.0
+rdkit==2023.9.6
+httpx==0.27.0
+aiofiles==23.2.1
+numpy==1.26.4
+motor==3.4.0
+pandas==2.0.3
+cryptography==42.0.8
+seaborn==0.13.2
+scikit-learn==1.5.1
+bohrium-open-sdk==0.1.0a19

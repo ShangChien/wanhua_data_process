@@ -1,0 +1,12 @@
+{
+  "操作": "Operation",
+  "导出": "Export",
+  "Physicochemical properties": "Physicochemical properties",
+  "Endocrine": "Endocrine",
+  "Absorption": "Absorption",
+  "Metabolism": "Metabolism",
+  "Excretion": "Excretion",
+  "Toxicity": "Toxicity",
+  "Drug-likeness": "Drug-likeness",
+  "Distribution": "Distribution"
+}
